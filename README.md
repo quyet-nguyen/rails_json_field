@@ -44,3 +44,7 @@ Some future features include:
 * Better default styling
 * Nested objects
 * Array objects
+
+## Thanks
+
+A special thank you to the [john_hancock](https://github.com/Brantron/john_hancock) gem for showing me how to structure this kind of gem.
