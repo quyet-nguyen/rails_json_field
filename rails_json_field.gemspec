@@ -6,8 +6,8 @@ require 'rails_json_field/version'
 Gem::Specification.new do |s|
   s.name          = 'rails_json_field'
   s.version       = RailsJsonField::VERSION
-  s.summary       = "A rails form helper for json fields."
-  s.description   = "Allows the user to fillout a JSON database field in a friendly way by providing text inputs for keys and values along with Add and Remove controls.  Currently requires jQuery, but this dependency will be removed in a future version."
+  s.summary       = "A friendly way for users to edit JSON fields in Rails forms."
+  s.description   = "Allows the user to fillout a JSON database field by providing text inputs for keys and values along with Add and Remove controls. Currently requires jQuery."
   s.authors       = ["Jeremy Dye"]
   s.email         = 'dyeje@mail.gvsu.edu'
   s.homepage      = 'https://github.com/dyeje/rails_json_field'
