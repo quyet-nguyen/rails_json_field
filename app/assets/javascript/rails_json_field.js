@@ -1,18 +1,32 @@
-function railsJsonField(id, objectName, attribute) {
+function railsJsonField(id, objectName, attribute, currentValues) {
   var jsonField = $('#' + id);
+
+  // generate add link
+  jsonField.html("<a href='#' class='json-field-add-field'>Add</a>")
   var addFieldLink = jsonField.find('.json-field-add-field');
+
+  var keyValuePair = function (key, value) {
+    var name = objectName + '[' + attribute + '][' + key + ']';
+
+    return "<div class='json-field-field'>" +
+      "<input class='json-field-hidden-field' type='hidden' name='" + name + "' value='" + value + "'></input>" +
+      "<input type='text' class='json-field-key-field' value='" + key + "'></input>" +
+      "<span>:</span>" +
+      "<input type='text' class='json-field-value-field' value='" + value + "'></input>" +
+      "<a class='json-field-remove-field' href='#'>Remove</a>" +
+    "</div>";
+  }
+
+  // display the current JSON of the object's attribute
+  for (var key in currentValues) {
+    if (currentValues.hasOwnProperty(key)) {
+      $(keyValuePair(key, currentValues[key])).insertBefore(addFieldLink)
+    }
+  }
 
   addFieldLink.click(function (e) {
     e.preventDefault();
-    $(
-      "<div class='json-field-field'>" +
-        "<input class='json-field-hidden-field' type='hidden' name='' value=''></input>" +
-        "<input type='text' class='json-field-key-field'></input>" +
-        "<span>:</span>" +
-        "<input type='text' class='json-field-value-field'></input>" +
-        "<a class='json-field-remove-field' href='#'>Remove</a>" +
-      "</div>"
-    ).insertBefore($(this));
+    $(keyValuePair('', '')).insertBefore($(this));
   });
 
   jsonField.on('click', 'a.json-field-remove-field', function (e) {
