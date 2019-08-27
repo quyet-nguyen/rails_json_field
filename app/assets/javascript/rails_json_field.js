@@ -9,10 +9,10 @@ function railsJsonField(id, objectName, attribute, currentValues) {
     var name = objectName + '[' + attribute + '][' + key + ']';
 
     return "<div class='json-field-field'>" +
-      "<input class='json-field-hidden-field' type='hidden' name='" + name + "' value='" + value + "'></input>" +
+      "<input class='json-field-hidden-field' type='hidden' name='" + name + "' value='" + JSON.stringify(value) + "'></input>" +
       "<input type='text' class='json-field-key-field' value='" + key + "'></input>" +
       "<span>:</span>" +
-      "<input type='text' class='json-field-value-field' value='" + value + "'></input>" +
+      "<input type='text' class='json-field-value-field' value='" + JSON.stringify(value) + "'></input>" +
       "<a class='json-field-remove-field' href='#'>Remove</a>" +
     "</div>";
   }
